@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8adac; /* The pink background from your image */
+            overflow: hidden;
+            font-family: 'Arial', cursive;
+        }
+
+        /* The Card */
+        .card {
+            background-color: #fbc6c4;
+            padding: 50px;
+            border-radius: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #b01e51;
+            font-size: 3rem;
+            margin-top: 20px;
+        }
+
+        /* The Animated Dots */
+        .dot {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: move linear infinite;
+        }
+
+        @keyframes move {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div style="font-size: 80px;">🎂</div> 
+        <h1>Happy Birthday</h1>
+    </div>
+
+    <script>
+        // Let's generate 50 dots automatically using JavaScript
+        for (let i = 0; i < 50; i++) {
+            let dot = document.createElement('div');
+            dot.className = 'dot';
+            
+            // Randomize size and position
+            let size = Math.random() * 15 + 'px';
+            dot.style.width = size;
+            dot.style.height = size;
+            dot.style.left = Math.random() * 100 + 'vw';
+            
+            // Randomize speed and delay
+            dot.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            dot.style.animationDelay = Math.random() * 5 + 's';
+            
+            document.body.appendChild(dot);
+        }
+    </script>
+
+</body>
+</html>

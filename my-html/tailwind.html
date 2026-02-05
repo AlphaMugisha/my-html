@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Line-by-Line Guide | SkyHigh Drones</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Adding a custom branding color called 'aviation-blue'.
+                        // We can now use 'bg-aviation-blue' or 'text-aviation-blue'.
+                        'aviation-blue': '#00a8e8', 
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-900 text-slate-200 font-sans antialiased">
+
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700">
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            
+            <div class="flex items-center gap-2">
+                <svg class="w-8 h-8 text-aviation-blue animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                
+                <span class="text-xl font-bold tracking-wider text-white">SKYHIGH</span>
+            </div>
+
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-aviation-blue transition-colors duration-300">Dashboard</a>
+                <a href="#" class="hover:text-aviation-blue transition-colors duration-300">Flights</a>
+                <a href="#" class="hover:text-aviation-blue transition-colors duration-300">Settings</a>
+            </div>
+
+            <div class="md:hidden text-2xl cursor-pointer">☰</div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto pt-24 px-4 sm:px-6 lg:px-8">
+
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-lg hover:border-aviation-blue transition-all duration-300 group">
+                <h3 class="text-slate-400 text-sm font-medium uppercase">Flight Hours</h3>
+                
+                <div class="mt-2 flex items-baseline gap-2">
+                    <span class="text-4xl font-bold text-white group-hover:text-aviation-blue transition-colors">1,240</span>
+                    <span class="text-slate-500">hrs</span>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-lg">
+                <h3 class="text-slate-400 text-sm font-medium uppercase">Battery Status</h3>
+                <div class="mt-2">
+                    <div class="text-4xl font-bold text-green-400">98%</div>
+                    
+                    <div class="w-full bg-slate-700 rounded-full h-2.5 mt-2">
+                        <div class="bg-green-400 h-2.5 rounded-full" style="width: 98%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-lg">
+                <h3 class="text-slate-400 text-sm font-medium uppercase">Signal Strength</h3>
+                <div class="mt-2 flex items-center gap-2">
+                    <div class="w-3 h-8 bg-aviation-blue rounded-sm"></div>
+                    <div class="w-3 h-8 bg-aviation-blue rounded-sm"></div>
+                    <div class="w-3 h-8 bg-aviation-blue rounded-sm"></div>
+                    <div class="w-3 h-8 bg-slate-700 rounded-sm"></div>
+                    <span class="text-xl font-bold ml-2">Strong</span>
+                </div>
+            </div>
+
+             <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-lg relative overflow-hidden">
+                <h3 class="text-slate-400 text-sm font-medium uppercase">Next Mission</h3>
+                <div class="mt-2 text-xl font-bold text-white">Rwanda Survey</div>
+                <div class="text-sm text-slate-500">Kigali Sector 4</div>
+                
+                <div class="absolute -right-4 -bottom-4 opacity-10 text-9xl">🗺️</div>
+            </div>
+        </section>
+
+
+        <section class="flex flex-col md:flex-row gap-8 mb-12 items-center">
+            
+            <div class="flex-1 space-y-6">
+                
+                <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-aviation-blue to-purple-500">
+                    Ready for Takeoff
+                </h1>
+                
+                <p class="text-lg text-slate-400 leading-relaxed">
+                    Control your drone fleet with real-time telemetry. 
+                    This dashboard uses <span class="text-aviation-blue font-mono">Tailwind Utility Classes</span>.
+                </p>
+                
+                <div class="flex gap-4">
+                    <button class="px-8 py-3 bg-aviation-blue text-white font-bold rounded-lg shadow-lg shadow-blue-500/50 hover:scale-105 active:scale-95 transition-transform">
+                        Launch Drone
+                    </button>
+                    
+                    <button class="px-8 py-3 bg-slate-800 text-white font-bold rounded-lg border border-slate-600 hover:bg-slate-700 transition-colors">
+                        View Logs
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex-1 relative">
+                <img 
+                    src="https://images.unsplash.com/photo-1506947411487-a56738267384?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    alt="Drone View" 
+                    class="rounded-2xl shadow-2xl w-full aspect-video object-cover ring-4 ring-slate-800 ring-offset-4 ring-offset-aviation-blue"
+                >
+            </div>
+        </section>
+
+
+        <section class="max-w-2xl mx-auto bg-slate-800 p-8 rounded-2xl border border-slate-700 mb-20">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                <span class="w-2 h-8 bg-aviation-blue rounded-full"></span>
+                Flight Log Entry
+            </h2>
+            
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-400 mb-1">Pilot Name</label>
+                    
+                    <input type="text" placeholder="Levi Gatimu" 
+                        class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-aviation-blue focus:border-transparent outline-none transition-all placeholder-slate-600">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-400 mb-1">Date</label>
+                        <input type="date" class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-aviation-blue outline-none transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-400 mb-1">Duration</label>
+                        <select class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-aviation-blue outline-none transition-all">
+                            <option>15 mins</option>
+                            <option>30 mins</option>
+                            <option>1 hour</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="w-full py-3 bg-gradient-to-r from-aviation-blue to-blue-600 rounded-lg font-bold text-white hover:opacity-90 transition-opacity">
+                    Save Log
+                </button>
+            </form>
+        </section>
+
+    </main>
+</body>
+</html>
