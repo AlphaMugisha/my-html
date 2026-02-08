@@ -1,10 +1,21 @@
 <?php
+// 1. SETUP
+// require 'includes/db_connect.php'; // COMMENTED OUT: So you can view UI without DB
+require 'includes/header.php';
 
-// 2. FORM HANDLING
+// 2. FORM HANDLING (Simulation Only)
 $msg = "";
 $msgClass = "";
+$subjectVal = "";
+
+// Check URL for book parameter (Simulation)
+if (isset($_GET['book'])) {
+    $subjectVal = htmlspecialchars($_GET['book']);
+}
+
 if (isset($_POST['send_message'])) {
     $name = htmlspecialchars($_POST['name']);
+    // Since we have no DB, we just show the success message directly
     $msg = "Message sent! We'll get back to you soon, $name.";
     $msgClass = "active";
 }
@@ -116,7 +127,6 @@ if (isset($_POST['send_message'])) {
         background: var(--accent-gold);
         margin-top: 15px;
         border-radius: 4px;
-        /* Make it look like a paint stroke */
         border-bottom-right-radius: 1px;
         border-top-left-radius: 1px;
     }
@@ -236,7 +246,6 @@ if (isset($_POST['send_message'])) {
         margin-top: 10px;
         position: relative;
         overflow: hidden;
-        /* Artistic shape */
         border-radius: 5px 20px 5px 20px; 
     }
     .btn-submit:hover {
@@ -263,7 +272,6 @@ if (isset($_POST['send_message'])) {
         width: 100%;
         margin-top: -2px; /* Connect seamlessly */
     }
-    /* Torn Paper Effect using SVG Mask or CSS Clip Path */
     .paper-edge {
         position: absolute; top: -20px; left: 0; width: 100%; height: 40px;
         background: var(--white);
@@ -359,7 +367,7 @@ if (isset($_POST['send_message'])) {
                 </div>
 
                 <div class="input-group">
-                    <input type="text" name="subject" class="clean-input" value="<?= isset($_GET['book']) ? htmlspecialchars($_GET['book']) : '' ?>" required>
+                    <input type="text" name="subject" class="clean-input" value="<?= $subjectVal ?>" required>
                     <span class="input-highlight"></span>
                     <label class="clean-label">Subject / Program Interest</label>
                 </div>
